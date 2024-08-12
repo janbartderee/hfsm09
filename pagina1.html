@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flevoland op de kaart</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="style/style-new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ol@v9.1.0/ol.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/ol@v9.1.0/dist/ol.js"></script>
+    <style>
+      #map-ol {
+        height: 100vh; /* Volledige hoogte van het scherm */
+        width: 100%; /* Volledige breedte van het scherm */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="topnav" id="myTopnav">
+      <a href="index.html">Home</a>
+      <a href="pagina1.html">Algemeen</a>
+      <a href="pagina2.html">Spoor</a>
+      <a href="pagina3.html">Natuur</a>
+      <a href="pagina4.html">Windenergie</a>
+      <a href="javascript:void(0);" class="icon" onclick="myNavigation()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+
+    <!-- Navbar on small screens -->
+    <nav
+      id="navSmallScreen"
+      class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large"
+    >
+      <a href="index.html" class="topnavsmallscreen">Home</a>
+      <a href="pagina1.html" class="topnavsmallscreen">Algemeen</a>
+      <a href="pagina2.html" class="topnavsmallscreen">Spoor</a>
+      <a href="pagina3.html" class="topnavsmallscreen">Natuur</a>
+      <a href="pagina4.html" class="topnavsmallscreen">Windenergie</a>
+    </nav>
+    <!--buitenrand-->
+    <div class="content">
+      <!-- 1st Grid -->
+
+      <div class="container">
+        <div class="container">
+          <h1>Provincie Flevoland</h1>
+          <div class="twothird">
+            <h4>Flevoland op de kaart</h4>
+            <p>
+              Op deze kaart van Flevoland zijn de Flevopolder en de
+              Noordoostpolder, de twee delen duidelijk afgebeeld. Ook de
+              Houtribdijk tussen Lelystad en Enkhuizen, een belangrijke
+              waterkering voor Flevoland, en het IJsseloog, een kunstmatig
+              ringvormig eiland in het Ketelmeer dat aangelegd is voor de opslag
+              van verontreinigd slib, zijn op dit schaalniveau zichtbaar.
+              Recentelijk zijn ook de Markerwadden toegevoegd aan de provincie.
+              Hoewel ze nog niet in de gebruikte data zijn ingetekend, zijn ze
+              al zichtbaar op de achtergrondkaart. Deze elementen samen geven
+              een goed overzicht van de vorm van Flevoland.
+            </p>
+          </div>
+          <div class="third mediacontainer">
+            <img
+              class="mapcontent"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Flevoland.svg/1200px-Flag_of_Flevoland.svg.png"
+              width="100%"
+            />
+            <p class="caption">De vlag van Flevoland</p>
+          </div>
+        </div>
+      </div>
+      <!-- 2nd Grid -->
+      <div class="container">
+        <div class="fullwidth mediacontainer">
+          <div id="map-ol"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer" style="bottom: 0px; position: bottom">
+      <a href="https://www.facebook.com/GeoMediaDesign"
+        ><i class="fa fa-facebook-official socialmedbutton"></i
+      ></a>
+      <a href="https://www.instagram.com/geo_media_design/"
+        ><i class="fa fa-instagram socialmedbutton"></i
+      ></a>
+      <a href="https://www.aereshogeschool.nl/"
+        ><img
+          src="https://primary.jwwb.nl/public/x/l/i/temp-fwritwctxktsvqdcjmkb/5mn296/AERES-HOGESCHOOL-AlmereHorizontaal-rgb.png"
+          height="48px"
+      /></a>
+      <a href="https://www.geolab-almere.nl/"
+        ><img
+          src="https://primary.jwwb.nl/public/n/z/i/temp-gotiqqxsoiacfjpigcmf/yxvj4t/210600logogeolabmettekst.webp?enable-io=true&enable=upscale&width=149"
+          height="64px"
+      /></a>
+    </footer>
+    <!--Script voor responsive navigatiebalk-->
+    <script>
+      function myNavigation() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+
+    <!--Script voor responsive navigatiebalk op kleine schermen-->
+    <script>
+      // Used to toggle the menu on small screens when clicking on the menu button
+      function myNavigation() {
+        var x = document.getElementById("navSmallScreen");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
+    <script src="libs/main-ol.js"></script>
+  </body>
+</html>

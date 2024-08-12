@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treinstations en spoorwegen</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="style/style-new.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.29/esri/themes/light/main.css"
+    />
+
+    <script src="https://js.arcgis.com/4.29/"></script>
+    <style>
+      #map-arc {
+        height: 100vh; /* Volledige hoogte van het scherm */
+        width: 100%; /* Volledige breedte van het scherm */
+      }
+      .esri-view-user-storage {
+  height: 100% !important; /* Forceer de hoogte naar 100% */
+  width: 100% !important;  /* Forceer de breedte naar 100% */
+  position: relative !important; /* Zorg ervoor dat het element zich uitstrekt over de volledige ruimte */
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="topnav" id="myTopnav">
+      <a href="index.html">Home</a>
+      <a href="pagina1.html">Algemeen</a>
+      <a href="pagina2.html">Spoor</a>
+      <a href="pagina3.html">Natuur</a>
+      <a href="pagina4.html">Windenergie</a>
+      <a href="javascript:void(0);" class="icon" onclick="myNavigation()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+
+    <!-- Navbar on small screens -->
+    <nav
+      id="navSmallScreen"
+      class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large"
+    >
+      <a href="index.html" class="topnavsmallscreen">Home</a>
+      <a href="pagina1.html" class="topnavsmallscreen">Algemeen</a>
+      <a href="pagina2.html" class="topnavsmallscreen">Spoor</a>
+      <a href="pagina3.html" class="topnavsmallscreen">Natuur</a>
+      <a href="pagina4.html" class="topnavsmallscreen">Windenergie</a>
+    </nav>
+    <!--buitenrand-->
+    <div class="content">
+      <!-- 1st Grid -->
+
+      <div class="container">
+        <div class="container">
+          <h1>Provincie Flevoland</h1>
+          <div class="half">
+            <h4>Treinstations en spoorwegen</h4>
+            <p>
+              Op deze kaart staat de spoorlijn die de provincie Flevoland met
+              andere regio's in Nederland verbindt. De Flevolijn loopt van
+              Lelystad via Almere naar Weesp en verder richting Amsterdam.
+              Daarnaast is in 2012 de Hanzelijn richting Zwolle voltooid. Langs
+              deze spoorlijnen bevinden zich verschillende treinstations, zoals
+              Lelystad Centrum, Almere Centrum en Dronten.
+            </p>
+          </div>
+          <div class="half mediacontainer">
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!4v1723406469128!6m8!1m7!1sCu2VZQlSlJERtJ-UUmdW8g!2m2!1d52.50793511024148!2d5.472162953196196!3f101.0128340320022!4f-2.651157863559092!5f0.4000000000000002"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+            <p class="caption">Het stationsplein van Lelystad Centrum</p>
+          </div>
+        </div>
+      </div>
+      <!-- 2nd Grid -->
+      <div class="container">
+        <div class="fullwidth mediacontainer">
+          <div id="map-arc" class="map"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer" style="bottom: 0px; position: bottom">
+      <a href="https://www.facebook.com/GeoMediaDesign"
+        ><i class="fa fa-facebook-official socialmedbutton"></i
+      ></a>
+      <a href="https://www.instagram.com/geo_media_design/"
+        ><i class="fa fa-instagram socialmedbutton"></i
+      ></a>
+      <a href="https://www.aereshogeschool.nl/"
+        ><img
+          src="https://primary.jwwb.nl/public/x/l/i/temp-fwritwctxktsvqdcjmkb/5mn296/AERES-HOGESCHOOL-AlmereHorizontaal-rgb.png"
+          height="48px"
+      /></a>
+      <a href="https://www.geolab-almere.nl/"
+        ><img
+          src="https://primary.jwwb.nl/public/n/z/i/temp-gotiqqxsoiacfjpigcmf/yxvj4t/210600logogeolabmettekst.webp?enable-io=true&enable=upscale&width=149"
+          height="64px"
+      /></a>
+    </footer>
+    <!--Script voor responsive navigatiebalk-->
+    <script>
+      function myNavigation() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+
+    <!--Script voor responsive navigatiebalk op kleine schermen-->
+    <script>
+      // Used to toggle the menu on small screens when clicking on the menu button
+      function myNavigation() {
+        var x = document.getElementById("navSmallScreen");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
+    <script src="libs/main-arcgis-js-api.js"></script>
+  </body>
+</html>

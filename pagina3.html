@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natuurnetwerk</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="style/style-new.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <style>
+      #map {
+        height: 90vh;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="topnav" id="myTopnav">
+      <a href="index.html">Home</a>
+      <a href="pagina1.html">Algemeen</a>
+      <a href="pagina2.html">Spoor</a>
+      <a href="pagina3.html">Natuur</a>
+      <a href="pagina4.html">Windenergie</a>
+      <a href="javascript:void(0);" class="icon" onclick="myNavigation()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+
+    <!-- Navbar on small screens -->
+    <nav
+      id="navSmallScreen"
+      class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large"
+    >
+      <a href="index.html" class="topnavsmallscreen">Home</a>
+      <a href="pagina1.html" class="topnavsmallscreen">Algemeen</a>
+      <a href="pagina2.html" class="topnavsmallscreen">Spoor</a>
+      <a href="pagina3.html" class="topnavsmallscreen">Natuur</a>
+      <a href="pagina4.html" class="topnavsmallscreen">Windenergie</a>
+    </nav>
+    <!--buitenrand-->
+    <div class="content">
+      <!-- 1st Grid -->
+
+      <div class="container">
+        <div class="container">
+          <h1>Provincie Flevoland</h1>
+          <div class="half">
+            <h4>Natuurnetwerk</h4>
+            <p>
+              De meeste Flevolandse natuurgebieden zijn onderdeel van een
+              nationaal netwerk: het Natuurnetwerk Nederland (NNN). Eerst heette
+              dit de Ecologische Hoofdstructuur (EHS). Het NNN heeft als doel de
+              natuur te behouden en te versterken. Het grootste natuurgebied van
+              Flevoland zijn de Oostvaardersplassen.
+            </p>
+          </div>
+          <div class="half mediacontainer">
+            <img
+              class="mapcontent"
+              src="https://assets.plaece.nl/thumb/zceimcpzkQlJWJpFucwimI9jnYhcFDv93gsE7_3kJ14/resizing_type:fit/width:960/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC1mbGV2b2xhbmQvaW1hZ2UvMjAxOC1vb3N0dmFhcmRlcnNwbGFzc2VuLW1hcmpvbGVpbi1kZW4taGFydG9nLThfMTc5NzQ4Mzg0Mi5qcGVn.jpeg"
+              width="100%"
+            />
+            <p class="caption">De Oostvaardersplassen</p>
+          </div>
+        </div>
+      </div>
+      <!-- 2nd Grid -->
+      <div class="container">
+        <div class="fullwidth mediacontainer">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer" style="bottom: 0px; position: bottom">
+      <a href="https://www.facebook.com/GeoMediaDesign"
+        ><i class="fa fa-facebook-official socialmedbutton"></i
+      ></a>
+      <a href="https://www.instagram.com/geo_media_design/"
+        ><i class="fa fa-instagram socialmedbutton"></i
+      ></a>
+      <a href="https://www.aereshogeschool.nl/"
+        ><img
+          src="https://primary.jwwb.nl/public/x/l/i/temp-fwritwctxktsvqdcjmkb/5mn296/AERES-HOGESCHOOL-AlmereHorizontaal-rgb.png"
+          height="48px"
+      /></a>
+      <a href="https://www.geolab-almere.nl/"
+        ><img
+          src="https://primary.jwwb.nl/public/n/z/i/temp-gotiqqxsoiacfjpigcmf/yxvj4t/210600logogeolabmettekst.webp?enable-io=true&enable=upscale&width=149"
+          height="64px"
+      /></a>
+    </footer>
+    <!--Script voor responsive navigatiebalk-->
+    <script>
+      function myNavigation() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+
+    <!--Script voor responsive navigatiebalk op kleine schermen-->
+    <script>
+      // Used to toggle the menu on small screens when clicking on the menu button
+      function myNavigation() {
+        var x = document.getElementById("navSmallScreen");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
+
+    <script>
+      // Initialiseer de kaart
+      const map = L.map("map").setView([52.55, 5.55], 9);
+
+      // Creëer baselayer - tiles
+      const backgroundMap = L.tileLayer(
+        "http://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
+        {
+          attribution:
+            '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+          maxZoom: 19,
+        }
+      ).addTo(map);
+
+      // Voeg de WMS-laag toe
+      const wmsLayer = L.tileLayer
+        .wms("https://geo2.flevoland.nl/geoserver/Extern/wms?", {
+          layers: "inspire_nlps_nnn",
+          transparent: true,
+          format: "image/png",
+        })
+        .addTo(map);
+    </script>
+  </body>
+</html>
